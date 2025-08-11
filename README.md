@@ -2,6 +2,51 @@
 
 A full-stack URL shortener built with Node.js, Express, MongoDB, React, and Vite.
 
+## Deployment on Render
+
+This project can be easily deployed on [Render](https://render.com) using the included `render.yaml` configuration file.
+
+### Automatic Deployment with Blueprint
+
+1. Fork or clone this repository to your GitHub account
+2. Sign up for a Render account
+3. Connect your GitHub account to Render
+4. Create a new "Blueprint" on Render and select your repository
+5. Render will automatically detect the `render.yaml` file and create the services
+6. Add the required environment variables:
+   - `MONGO_URI`: Your MongoDB connection string
+
+### Manual Deployment
+
+#### Backend API Service
+
+1. Create a new Web Service on Render
+2. Link to your GitHub repository
+3. Configure the service:
+   - **Name**: urlshortener-api
+   - **Root Directory**: backend
+   - **Environment**: Node
+   - **Build Command**: npm install
+   - **Start Command**: npm start
+   - **Environment Variables**:
+     - NODE_ENV: production
+     - PORT: 10000 (Render will automatically set this)
+     - MONGO_URI: (your MongoDB connection string)
+     - BASE_URL: (your frontend URL)
+     - CORS_ORIGIN: (your frontend URL)
+
+#### Frontend Static Site
+
+1. Create a new Static Site on Render
+2. Link to your GitHub repository
+3. Configure the service:
+   - **Name**: urlshortener-frontend
+   - **Root Directory**: frontend
+   - **Build Command**: npm install && npm run build
+   - **Publish Directory**: dist
+   - **Environment Variables**:
+     - VITE_API_URL: (your backend API URL)
+
 ## Features
 
 - Shorten long URLs to short codes
