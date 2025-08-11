@@ -9,7 +9,7 @@
     "postinstall": "npm run install:backend && npm run install:frontend",
     "build:frontend": "cd frontend && npm run build",
     "start:backend": "cd backend && npm start",
-    "start": "npm run start:backend",
+    "start": "node index.js",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
     "build": "npm run build:frontend"
