@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from '../services/api';
 
 export default function UrlList({ urls }) {
   const [sortField, setSortField] = useState('createdAt');
@@ -109,7 +110,7 @@ export default function UrlList({ urls }) {
             <tr key={url._id} className="hover:bg-gray-50 transition-colors">
               <td className="px-6 py-4 whitespace-nowrap">
                 <a
-                  href={`${window.location.origin}/${url.shortCode}`}
+                  href={`${API_URL}/${url.shortCode}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 hover:underline font-medium"

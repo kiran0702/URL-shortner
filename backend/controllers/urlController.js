@@ -53,7 +53,7 @@ exports.redirectUrl = async (req, res, next) => {
           referrer: referrer,
         },
       },
-      { new: true }
+      { new: true },
     );
     if (url) {
       return res.redirect(302, url.originalUrl);

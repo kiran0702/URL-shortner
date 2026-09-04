@@ -18,9 +18,12 @@ export default function Admin() {
     <div className="max-w-6xl mx-auto mt-12 px-4">
       <div className="card p-8 shadow-lg border border-gray-100">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-blue-600">Admin Dashboard</h1>
+          <div>
+            <h1 className="text-3xl font-bold text-blue-600">Your Dashboard</h1>
+            <p className="text-gray-500 mt-1">View your shortened links, visit counts, and referrers in one place.</p>
+          </div>
           <div className="text-sm bg-blue-50 text-blue-700 py-1 px-3 rounded-full font-medium">
-            {urls.length} URLs found
+            {urls.length} links tracked
           </div>
         </div>
 
@@ -39,7 +42,7 @@ export default function Admin() {
         {!loading && !error && <UrlList urls={urls} />}
 
         <div className="mt-8 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800">
-          <span className="font-bold">Note:</span> Protect this route with authentication in production (see root README).
+          <span className="font-bold">Note:</span> Add authentication if you want each user to see only their own links in production.
         </div>
       </div>
     </div>

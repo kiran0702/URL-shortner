@@ -4,7 +4,7 @@
 
 - Shorten URLs via backend API
 - View and copy shortened URLs
-- Admin page to view all URLs and stats
+- Dashboard page to view all URLs and stats
 - Responsive, minimal UI
 
 ## Setup & Run

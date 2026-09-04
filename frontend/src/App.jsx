@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Admin from './pages/Admin';
 
@@ -12,7 +12,7 @@ export default function App() {
             <span className="text-xl font-bold text-blue-600 mr-8">URL Shortener</span>
             <div className="flex gap-8">
               <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 hover:underline underline-offset-4">Home</Link>
-              <Link to="/admin" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 hover:underline underline-offset-4">Admin</Link>
+              <Link to="/dashboard" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 hover:underline underline-offset-4">Dashboard</Link>
             </div>
           </div>
           <span className="text-xs px-3 py-1 bg-gray-100 text-gray-600 rounded-full">Share links easily</span>
@@ -21,7 +21,8 @@ export default function App() {
       <main className="min-h-screen bg-gray-50 pb-12">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/dashboard" element={<Admin />} />
+          <Route path="/admin" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </main>
     </Router>
