@@ -23,7 +23,12 @@ exports.shortenUrl = async (req, res, next) => {
       shortCode = nanoid(7);
       exists = await Url.findOne({ shortCode });
     }
-    const baseUrl = process.env.BASE_URL;
+    const configuredBaseUrl = process.env.BASE_URL?.replace(/\/$/, "");
+    const baseUrl =
+      process.env.NODE_ENV === "production" &&
+      (!configuredBaseUrl || configuredBaseUrl.includes("localhost"))
+        ? `${req.protocol}://${req.get("host")}`
+        : configuredBaseUrl;
     const url = new Url({ originalUrl, shortCode });
     await url.save();
     res.status(201).json({ shortUrl: `${baseUrl}/${shortCode}`, shortCode });
